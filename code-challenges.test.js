@@ -17,7 +17,9 @@
 // input: an array
 // output: an array that has the first item removed and the remaining items randomly shuffled into a differant index location
 
-// pseudo: 
+// const removeAndShuffle = (array) => array.slice([1]).sort(() => Math.random() - 0.5)
+
+// pseudo: Create a function called removeAndShuffle. With the given array as the argument, pass that array as the parameter and use .slice to remove the first [1] index of the array. After the first index of the array is removed, use .sort to consistently sort the values in the array in ascending order(alphabetically). Math.random is  used to randomize the return of the index locations. With Math.random inherently returning a float between 0 and 1, adding the - 0.5 is used to compare positive, zero, or a negative value to sort the return values. As opposed to using math.floor/math.ceil and adding either +/- 1. I did this for two reason, First: to see if and how it worked. Second: I kept it because it was a slightly cleaner way to write the code.   
 
 // test:
 // describe("removeAndShuffle", () => {
@@ -31,8 +33,8 @@
 //         "saffron"
 //       ]
 //     it("remove the first item from the array and shuffles the remaining content" , () => {
-//         expect(removeAndShuffle(colors1)).not.toEqual(expect.arrayContaining(colors1))
-//         expect(removeAndShuffle(colors2)).not.toEqual(expect.arrayContaining(colors2))
+//         expect(removeAndShuffle(colors1)).toEqual(expect.arrayContaining(["yellow", "blue", "pink", "green"]))
+//         expect(removeAndShuffle(colors2)).toEqual(expect.arrayContaining(["saffron", "aquamarine", "periwinkle", "indigo", "ochre"]))
 //     })
 // })
 // const colors1 = ["purple", "blue", "green", "yellow", "pink"]
@@ -70,6 +72,37 @@
 // Tests:       1 failed, 1 total
 
 // jest-test-2:
+// FAIL  ./code-challenges.test.js
+// removeAndShuffle
+//   ✕ remove the first item from the array and shuffles the remaining content (2 ms)
+
+// ● removeAndShuffle › remove the first item from the array and shuffles the remaining content
+
+//   expect(received).toEqual(expected) // deep equality
+
+//   Expected: ArrayContaining ["yellow", "blue", "pink", "green"]
+//   Received: undefined
+
+//     32 |       ]
+//     33 |     it("remove the first item from the array and shuffles the remaining content" , () => {
+//   > 34 |         expect(removeAndShuffle(colors1)).toEqual(expect.arrayContaining(["yellow", "blue", "pink", "green"]))
+//        |                                           ^
+//     35 |         expect(removeAndShuffle(colors2)).toEqual(expect.arrayContaining(["saffron", "aquamarine", "periwinkle", "indigo", "ochre"]))
+//     36 |     })
+//     37 | })
+
+//     at Object.toEqual (code-challenges.test.js:34:43)
+
+// Test Suites: 1 failed, 1 total
+// Tests:       1 failed, 1 total
+
+// jest-test-3:
+// PASS  ./code-challenges.test.js
+// removeAndShuffle
+//   ✓ remove the first item from the array and shuffles the remaining content (1 ms)
+
+// Test Suites: 1 passed, 1 total
+// Tests:       1 passed, 1 total
 
 // b) Create the function that makes the test pass.
 
@@ -91,7 +124,7 @@
 // input: an object that contains both upvotes and down votes.
 // output: a number that has tallied all votes, both up and down and returns the aggrigate value of those votes. 
 
-// pseudo: Create a function called tallyTotalVotes. Passing the given object variable through as the parameters use Object.value to pull the values from key:value pairs and return them as an array. Use .reduce to iterate over each item in the array is assending index order. By using Math.abs(absolute), setting it as negative for the second value and setting the .reduce starting point at 0, this will allow the downvotes to be subtracted from the upvotes, even if the return is a negative number. 
+// pseudo: Create a function called tallyTotalVotes. Passing the given object variable through as the parameter, use Object.value to pull the values from key:value pairs and return them as an array. Use .reduce to iterate over each item in the array in ascending index order and return the accumulated result. By using Math.abs(absolute), setting it as negative for the second value and setting the .reduce starting point at 0, this will allow the downvotes to be subtracted from the upvotes, even if the return is a negative number. 
 
 // test: 
 // describe("tallyTotalVotes", () => {
@@ -177,7 +210,7 @@
 // input: 2 seperate arrays
 // output: 1 array with any dulicate values from the input arrays removed
 
-// pseudo: Create a functional called oneUniqueArray. Pass two seperate array arguments as the parameters. Create a new variable called combinedArrays. In this variable use the spread operator with new to create a new instance of the input arrays and the Set which will only store unique values. This will return the arrays with all duplicate values removed. .concat is then used to combine the two arrays. The new variable combinedArrays in then returned. 
+// pseudo: Create a function called oneUniqueArray. Pass two separate array arguments as the parameters. Create a new variable called combinedArrays. In this variable use the spread operator with new to create a new instance of the input arrays and Set which will only store unique values. This will return the arrays with all duplicate values removed. .concat is then used to combine the two arrays. The new variable combinedArrays is then returned.
 
 // test:
     // describe("oneUniqueArray", () => {

@@ -27,9 +27,13 @@ p odd_or_even(7)
 p odd_or_even(42)
 p odd_or_even(221)
 
-# refactor and practice using ternary operator.
-# p 'Enter any number you would like: '
-# p gets.to_i.even? ? 'That is an even number' : 'That is an odd number'
+# practice using ternary operator.
+p 'Enter any number you would like then press enter: '
+p gets.to_i.even? ? 'That is an even number' : 'That is an odd number'
+
+# p 'Enter any number you would like then press enter: '
+# input = gets.chomp
+# p input.to_i.even? ? "#{input} is an even number" : "#{input} is an odd number"
 
 # -------------------2) Create a method that takes in a string and removes all the vowels from the string. Use the test variables provided. 
 # HINT: Check out this resource: https://ruby-doc.org/core-2.6/String.html#method-i-delete
